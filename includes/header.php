@@ -1,11 +1,17 @@
 <?php 
 require('config/config.php');
 
-if(isset($_SESSION['username'])) {
+if(isset($_SESSION['username'])) {      //Login successfully
+
     $userLoggedIn = $_SESSION['username'];
-} else {        //Fail to login, send back to register page
-    header("Location: register.php");
+    $user_details_query = mysqli_query($connect, "SELECT * FROM users WHERE user_name='$userLoggedIn'");
+    $user = mysqli_fetch_array($user_details_query); 
+
+
+} else {        //Fail to login
+    header("Location: register.php");  //Send back to register.php
 }
+
 ?>
 
 <html>
@@ -17,6 +23,7 @@ if(isset($_SESSION['username'])) {
     <script src="assets/js/bootstrap.js"></script>
 
     <!-- CSS -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
@@ -24,7 +31,30 @@ if(isset($_SESSION['username'])) {
 <body>
 
     <div class="top_bar">
+
         <div class="logo">
             <a href="index.php">Funfeed</a>
         </div>
+
+        <nav>
+            <a href="#">
+                <?php echo $user[0]; ?>
+            </a>
+            <a href="#">
+                <i class="fas fa-home"></i>
+            </a>
+            <a href="#">
+                <i class="fas fa-user-friends"></i>
+            </a>
+            <a href="#">
+                <i class="fab fa-facebook-messenger"></i>
+            </a>
+            <a href="#">
+                <i class="fas fa-bell"></i>
+            </a>
+            <a href="#">
+                <i class="fas fa-cog"></i>
+            </a>  
+        </nav>
+
     </div>
