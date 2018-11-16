@@ -1,5 +1,5 @@
 $(document).ready(function() {
-
+    
     //Click "signup", hide login and show signup form
     $("#signup").click(function() {
         $("#first").slideUp("slow", function() {

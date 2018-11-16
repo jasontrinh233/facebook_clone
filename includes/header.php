@@ -1,5 +1,5 @@
 <?php 
-require 'config/config.php';
+require('config/config.php');
 
 if(isset($_SESSION['username'])) {
     $userLoggedIn = $_SESSION['username'];
@@ -10,7 +10,7 @@ if(isset($_SESSION['username'])) {
 
 <html>
 <head>
-    <title>Welcome to Funfeed!</title>
+    <title>Welcome to Funfeed</title>
 
     <!-- Javascript -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -18,17 +18,13 @@ if(isset($_SESSION['username'])) {
 
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css>">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
 </head>
 <body>
 
-    <div class="nav_bar">
-
+    <div class="top_bar">
         <div class="logo">
-
-            <a href="index.php">Funfeed!</a>
-
+            <a href="index.php">Funfeed</a>
         </div>
-
     </div>
