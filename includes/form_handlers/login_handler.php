@@ -1,12 +1,10 @@
-<?php 
+ <?php 
 
 if(isset($_POST['login_button'])) {
 
-	//Email
 	$email = filter_var($_POST['log_email'], FILTER_SANITIZE_EMAIL); //Check if valid email input then store as variable
 	$_SESSION['log_email'] = $email; //Store email in to session variables
 
-	//Password
 	$password = md5($_POST['log_password']); //Encrypt password
 
 	//Perform database query
@@ -14,10 +12,11 @@ if(isset($_POST['login_button'])) {
 	//Return number of rows of dupicate records in database
 	$num_rows = mysqli_num_rows($check_query);
 	
-	if($num_rows == 1){		//Login successfully
+	//Login successfully
+	if($num_rows == 1) {	
 		$record = mysqli_fetch_array($check_query);
 		$username = record['username'];
-		$_SESSION['username'] = $username; //Condition to login successfully
+		$_SESSION['username'] = $username; //Condition of login successfully
 
 		//Reopen closed account
 		$user_closed_query = mysqli_query($connect, "SELECT * FROM users WHERE email='$email' AND users_closed='yes'");

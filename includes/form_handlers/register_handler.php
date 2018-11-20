@@ -80,7 +80,7 @@ if(isset($_POST['register_button'])) {
 	if( strlen($password) > 30 || strlen($password) < 5)
 		array_push($error_array, "Your password must be between 5 to 30 characters<br>");
 
-	//If no error, save record in database
+	//If no error, save record into database
 	if(empty($error_array)){
 		$password = md5($password); //Encrypting password 
 
@@ -88,13 +88,13 @@ if(isset($_POST['register_button'])) {
 		$username = strtolower($fname . "_" . $lname);
 
 		//Check if username already in database
-		$check_username_query = mysqli_query($connect, "SELECT user_name FROM users WHERE user_name='$username'");
+		$check_username_query = mysqli_query($connect, "SELECT username FROM users WHERE username='$username'");
 
 		$i = 0;
-		while(mysqli_num_rows($check_username_query)!= 0){
+		while(mysqli_num_rows($check_username_query) != 0) {
 			$i++;
 			$username = $username . "_" . $i; 
-			$check_username_query = mysqli_query($connect, "SELECT user_name FROM users WHERE user_name='$username'");
+			$check_username_query = mysqli_query($connect, "SELECT username FROM users WHERE username='$username'");
 		}
 
 		//Default profile picture
@@ -118,4 +118,5 @@ if(isset($_POST['register_button'])) {
 		$_SESSION['reg_email2'] = "";
 	}
 }
+
 ?>

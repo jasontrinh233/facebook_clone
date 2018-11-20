@@ -1,19 +1,19 @@
 <?php 
-require ('config/config.php');
-require ('includes/form_handlers/register_handler.php');
-require ('includes/form_handlers/login_handler.php');
+require 'config/config.php';
+require 'includes/form_handlers/login_handler.php';
+require 'includes/form_handlers/register_handler.php';
+
 ?>
 
 <html>
 <head>
 	<title>Welcome to FunFeed!</title>
-	
+
 	<link rel="stylesheet" type="text/css" href="assets/css/register_style.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="assets/js/register.js"></script>
 </head>
 <body>
-	
 	<?php
 	// When invalid inputs, stay at the register section
 	if(isset($_POST['register_button'])) {
@@ -33,7 +33,7 @@ require ('includes/form_handlers/login_handler.php');
 		<div class="login_field">
 
 			<div class="login_header">
-				<h1>FunFeed!</h1>
+				<h1>FunFeed</h1>
 				Login or Sign Up below!
 			</div>
 

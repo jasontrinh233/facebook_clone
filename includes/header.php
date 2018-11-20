@@ -1,18 +1,16 @@
 <?php 
-require('config/config.php');
+    require 'config/config.php';
 
-if(isset($_SESSION['username'])) {      //Login successfully
-
-    $userLoggedIn = $_SESSION['username'];
-    $user_details_query = mysqli_query($connect, "SELECT * FROM users WHERE user_name='$userLoggedIn'");
-    $user = mysqli_fetch_array($user_details_query); 
-
-
-} else {        //Fail to login
-    header("Location: register.php");  //Send back to register.php
-}
-
-?>
+    // Login successful
+    if(isset($_SESSION['username'])) {    
+        $userLoggedIn = $_SESSION['username'];
+        $user_details_query = mysqli_query($connect, "SELECT * FROM users WHERE username='$userLoggedIn'");
+        $user = mysqli_fetch_array($user_details_query);
+    } 
+    else {   // Login fail
+        header("Location: register.php");
+    }
+ ?>
 
 <html>
 <head>
@@ -38,23 +36,29 @@ if(isset($_SESSION['username'])) {      //Login successfully
 
         <nav>
             <a href="#">
-                <?php echo $user[0]; ?>
+                <?php echo $user['first_name']; ?>
             </a>
+
             <a href="#">
                 <i class="fas fa-home"></i>
             </a>
+
             <a href="#">
                 <i class="fas fa-user-friends"></i>
             </a>
+
             <a href="#">
                 <i class="fab fa-facebook-messenger"></i>
             </a>
+
             <a href="#">
                 <i class="fas fa-bell"></i>
             </a>
+
             <a href="#">
                 <i class="fas fa-cog"></i>
             </a>  
+
         </nav>
 
     </div>
