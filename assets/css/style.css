@@ -8,14 +8,21 @@
     src: url("../fonts/Bellota-BoldItalic.otf");
 }
 
+body {
+	line-height: 17px;
+	background-color: #f1f2f6;
+}
+
 .top_bar {
     width: 100%;
     height: 40px;
     min-width: 1050px;
-    background-color: #20aae5;
+    background-color: #3498db;
     border-bottom: 3px solid #1894ca;
     margin: 0 0 10px 0;
     display: inline-flex;
+    position: fixed;	/* When scroll the page, this top_bar stay and doesn't scroll. */
+    z-index: 10; /* Specifies the stack order of an element. The higher number, the higher priority. */
 }
 
 .logo {
@@ -24,12 +31,17 @@
 	font-size: 26;
 	position: relative;
 	top: 10px;
+	color: #0e477b;
 	text-shadow: #73b6e2 0.5px 0.5px 0px;
-	color: #1086ba;
+}
+
+a {
+    color: #0e477b;
+    text-decoration: none;
 }
 
 a:hover {
-	text-decoration: none;
+	text-decoration: none; /* Get rid of the underline when hover. */
 }
 
 nav {
@@ -41,7 +53,7 @@ nav {
 
 nav a{
 	position: relative;
-	color: #1086ba;
+	color: #0e477b;
 	text-decoration: none;
 	font-size: 21px;
 }
@@ -49,3 +61,101 @@ nav a{
 nav a:hover {
 	color: #ffffff;
 }
+
+.wrapper {
+	margin: 0 auto;
+	top: 50px;
+	position: relative;
+	padding: 0 10px;
+	width: 75%;
+	min-width: 950px;
+}
+
+.column {
+	background-color: #ffffff;
+	padding: 10px;
+	border: 1px solid #d3d3d3;
+	box-shadow: 2px 2px 1px #d3d3d3;
+	border-radius: 5px;
+	z-index: -1;
+}
+
+.user_details {
+	width: 235px;
+	float: left;
+	margin-bottom: 20px;
+}
+
+.user_details_left_right {
+	width: 125px;
+	display: inline-block;
+	position: absolute;
+
+}
+
+
+.user_details img {
+	height: 125px;
+	border-radius: 5px;
+	margin-right: 7px;
+}
+
+.main_column {
+	float: right;
+	width: 72%;
+	z-index: -1;
+	min-height: 160px;
+}
+
+.post_form {
+	width: 100%;
+}
+
+.post_form textarea {
+	width: 94%;
+	height: 60px;
+	margin-right: 5px;
+	border: 1px solid #d3d3d3;
+	border-radius: 5px
+	font-size: 14px;
+	padding: 5px;
+}
+
+textarea:focus {
+	outline: 0;
+}
+
+.post_form input[type="submit"] {
+	width: 94%;
+	height: 30px;
+	border: none;
+	border-radius: 10px;
+	background-color: #3498db;
+	font-family: "Bellota-BoldItalic", sans-serif;
+    font-size: 120%;
+    color: #0e477b;
+    text-shadow: #73b6e2 0.5px 0.5px 0px;
+    position: relative;
+    outline: 0;
+    margin: 0;
+}
+
+/* Jiggle the text inside submit button when clicked */
+.post_form input[type="submit"]:active {
+	padding: 5px 4px 4px 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

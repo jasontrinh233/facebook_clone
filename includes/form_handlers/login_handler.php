@@ -15,7 +15,7 @@ if(isset($_POST['login_button'])) {
 	//Login successfully
 	if($num_rows == 1) {	
 		$record = mysqli_fetch_array($check_query);
-		$username = record['username'];
+		$username = $record['username'];
 		$_SESSION['username'] = $username; //Condition of login successfully
 
 		//Reopen closed account
