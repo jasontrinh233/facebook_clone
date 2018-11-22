@@ -35,7 +35,7 @@
         </div>
 
         <nav>
-            <a href="<?php echo $userLoggedIn; ?>">
+            <a href="<?php echo $userLoggedIn; ?>" style="font-family: 'Bellota-BoldItalic'">
                 <?php echo $user['first_name']; ?>
             </a>
 
